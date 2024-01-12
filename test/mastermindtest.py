@@ -1,7 +1,7 @@
 import unittest
 from random import Random
 
-from colour import Colour
+from enums.colour import Colour
 from mastermind import Mastermind
 
 MAX_GUESSES = 10

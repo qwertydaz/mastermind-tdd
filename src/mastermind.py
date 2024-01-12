@@ -1,6 +1,6 @@
 from random import Random
 
-from colour import Colour
+from enums.colour import Colour
 
 
 class Mastermind:
