@@ -3,3 +3,4 @@ class Player:
         self.name = name
         self.wins = 0
         self.losses = 0
+        self.win_loss_ratio = 1.0

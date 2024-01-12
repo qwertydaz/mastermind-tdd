@@ -68,6 +68,16 @@ class PlayerTest(unittest.TestCase):
 
         self.assertEqual(0, self.player.losses)
 
+    def test_win_loss_ratio_after_1_win_0_losses(self):
+        self.ms.player = self.player
+
+        # WIN
+        self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+        choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+        self.ms.guess(choice)
+
+        self.assertEqual(1.0, self.player.win_loss_ratio)
+
 
 if __name__ == '__main__':
     unittest.main()
