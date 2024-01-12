@@ -6,9 +6,6 @@ from enums.colour import Colour
 from stubs.mastermindstub import MastermindStub
 
 
-NUM_OF_COLOURS = len(Colour)
-
-
 class ResultTest(unittest.TestCase):
     ms = None
     random = None
@@ -17,7 +14,6 @@ class ResultTest(unittest.TestCase):
         self.ms = MastermindStub(Player())
 
     def test_empty_results(self):
-
         self.assertEqual([], self.ms.results.all_results)
 
     def test_add_result_after_win_in_1_guess(self):

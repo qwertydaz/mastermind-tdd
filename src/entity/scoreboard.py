@@ -1,2 +1,3 @@
 class Scoreboard:
-    pass
+    def get_scores(self):
+        return []

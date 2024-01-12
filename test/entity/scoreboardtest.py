@@ -1,9 +1,17 @@
 import unittest
 
+from entity.player import Player
+from stubs.mastermindstub import MastermindStub
+
 
 class ScoreboardTest(unittest.TestCase):
-    def test_something(self):
-        self.fail()
+    ms = None
+
+    def setUp(self):
+        self.ms = MastermindStub(Player())
+
+    def test_get_empty_scores(self):
+        self.assertEqual([], self.ms.scoreboard.get_scores())
 
 
 if __name__ == "__main__":

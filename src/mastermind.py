@@ -2,6 +2,7 @@ from random import Random
 
 from constants.mastermindconstants import MastermindConstants
 from entity.results import Results
+from entity.scoreboard import Scoreboard
 from enums.colour import Colour
 
 
@@ -14,6 +15,7 @@ class Mastermind:
         # visible attributes
         self._player = player
         self._results = Results()
+        self.scoreboard = Scoreboard()
 
     @property
     def player(self):
@@ -29,9 +31,9 @@ class Mastermind:
 
     def _handle_win_loss_count(self, result):
         if result == MastermindConstants.WINNING_RESULT:
-            self.player.increment_wins()
+            self._player.increment_wins()
         elif self._num_of_guesses == MastermindConstants.MAX_NUM_OF_GUESSES:
-            self.player.increment_losses()
+            self._player.increment_losses()
             self._num_of_guesses = 0
 
     def guess(self, guess):
@@ -45,4 +47,4 @@ class Mastermind:
                 result[1] += 1
 
         self._handle_win_loss_count(result)
-        self.results.add_result(result)
+        self._results.add_result(result)
