@@ -27,4 +27,7 @@ class Player:
         self.win_loss_ratio = 1.0
 
     def _update_win_loss_ratio(self):
-        self.win_loss_ratio = self._wins / (self._losses + 1)
+        if self._losses == 0:
+            self.win_loss_ratio = self._wins
+        else:
+            self.win_loss_ratio = self._wins / self._losses
