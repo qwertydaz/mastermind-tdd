@@ -25,7 +25,7 @@ class MastermindTest(unittest.TestCase):
         self.assertEqual(MastermindConstants.WINNING_RESULT, result)
 
     def test_lose_with_max_guesses(self):
-        for i in range(MastermindConstants.MAX_GUESSES):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
 
@@ -33,7 +33,7 @@ class MastermindTest(unittest.TestCase):
             self.assertNotEqual(MastermindConstants.WINNING_RESULT, result)
 
     def test_win_with_max_guesses(self):
-        for i in range(MastermindConstants.MAX_GUESSES - 1):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES - 1):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
 

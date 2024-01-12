@@ -90,7 +90,7 @@ class PlayerTest(unittest.TestCase):
         self.ms.player = self.player
 
         # LOSS
-        for i in range(MastermindConstants.MAX_GUESSES):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
             self.ms.guess(choice)
@@ -117,7 +117,7 @@ class PlayerTest(unittest.TestCase):
         self.ms.guess(choice)
 
         # LOSS
-        for i in range(MastermindConstants.MAX_GUESSES):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
             self.ms.guess(choice)
@@ -128,7 +128,7 @@ class PlayerTest(unittest.TestCase):
         self.ms.player = self.player
 
         # LOSS
-        for i in range(MastermindConstants.MAX_GUESSES):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
             self.ms.guess(choice)
@@ -149,7 +149,7 @@ class PlayerTest(unittest.TestCase):
         self.ms.guess(choice)
 
         # LOSS
-        for i in range(MastermindConstants.MAX_GUESSES):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
             self.ms.guess(choice)
@@ -165,7 +165,7 @@ class PlayerTest(unittest.TestCase):
         self.ms.player = self.player
 
         # LOSS
-        for i in range(MastermindConstants.MAX_GUESSES):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
             self.ms.guess(choice)
@@ -176,7 +176,7 @@ class PlayerTest(unittest.TestCase):
         self.ms.guess(choice)
 
         # LOSS
-        for i in range(MastermindConstants.MAX_GUESSES):
+        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
             self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
             choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
             self.ms.guess(choice)
@@ -184,5 +184,5 @@ class PlayerTest(unittest.TestCase):
         self.assertEqual(0.5, self.player.win_loss_ratio)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

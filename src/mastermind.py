@@ -9,7 +9,7 @@ class Mastermind:
         self.random = Random()
         self.code = []
         self.player = None
-        self.guesses = 0
+        self.num_of_guesses = 0
 
     def _generate_code(self):
         colours = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW, Colour.BLACK]
@@ -18,12 +18,12 @@ class Mastermind:
     def _handle_win_loss_count(self, result):
         if result == MastermindConstants.WINNING_RESULT:
             self.player.increment_wins()
-        elif self.guesses == MastermindConstants.MAX_GUESSES:
+        elif self.num_of_guesses == MastermindConstants.MAX_NUM_OF_GUESSES:
             self.player.increment_losses()
-            self.guesses = 0
+            self.num_of_guesses = 0
 
     def guess(self, guess):
-        self.guesses += 1
+        self.num_of_guesses += 1
         result = [0, 0]
 
         for i in range(len(self.code)):
