@@ -17,9 +17,9 @@ class Mastermind:
 
     def _handle_win_loss_count(self, result):
         if result == MastermindConstants.WINNING_RESULT:
-            self.player.wins += 1
+            self.player.increment_wins()
         elif self.guesses == MastermindConstants.MAX_GUESSES:
-            self.player.losses += 1
+            self.player.increment_losses()
 
     def guess(self, guess):
         self.guesses += 1
