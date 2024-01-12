@@ -1,7 +1,7 @@
 import unittest
 
 
-class MyTestCase(unittest.TestCase):
+class ScoreboardTest(unittest.TestCase):
     def test_something(self):
         self.fail()
 
