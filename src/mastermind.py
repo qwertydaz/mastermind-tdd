@@ -20,6 +20,7 @@ class Mastermind:
             self.player.increment_wins()
         elif self.guesses == MastermindConstants.MAX_GUESSES:
             self.player.increment_losses()
+            self.guesses = 0
 
     def guess(self, guess):
         self.guesses += 1
