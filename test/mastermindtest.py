@@ -46,6 +46,13 @@ class MastermindTest(unittest.TestCase):
         result = self.ms.guess(choice)
         self.assertEqual(WINNING_RESULT, result)
 
+    def test_all_correct_colours_in_wrong_position(self):
+        self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+        choice = [Colour.GREEN, Colour.YELLOW, Colour.RED, Colour.BLUE]
+
+        result = self.ms.guess(choice)
+        self.assertEqual([0, 4], result)
+
 
 class MastermindStub(Mastermind):
     def __init__(self, code=None):
