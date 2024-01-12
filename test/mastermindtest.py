@@ -43,6 +43,7 @@ class MastermindTest(unittest.TestCase):
             self.assertNotEqual(WINNING_RESULT, result)
 
         choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+
         result = self.ms.guess(choice)
         self.assertEqual(WINNING_RESULT, result)
 
@@ -53,6 +54,12 @@ class MastermindTest(unittest.TestCase):
         result = self.ms.guess(choice)
         self.assertEqual([0, 4], result)
 
+    def test_win_with_duplicate_colours_in_code_and_guess(self):
+        self.ms.code = [Colour.RED, Colour.RED, Colour.GREEN, Colour.YELLOW]
+        choice = [Colour.RED, Colour.RED, Colour.GREEN, Colour.YELLOW]
+
+        result = self.ms.guess(choice)
+        self.assertEqual(WINNING_RESULT, result)
 
 class MastermindStub(Mastermind):
     def __init__(self, code=None):
