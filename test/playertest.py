@@ -1,5 +1,6 @@
 import unittest
 
+from constants.mastermindconstants import MastermindConstants
 from entity.player import Player
 from enums.colour import Colour
 from stubs.mastermindstub import MastermindStub
@@ -9,10 +10,9 @@ class PlayerTest(unittest.TestCase):
     player = None
     ms = None
 
-    @classmethod
-    def setUpClass(cls):
-        cls.player = Player()
-        cls.ms = MastermindStub()
+    def setUp(self):
+        self.player = Player()
+        self.ms = MastermindStub()
 
     def tearDown(self):
         self.player.reset_win_loss()
@@ -85,6 +85,17 @@ class PlayerTest(unittest.TestCase):
             self.ms.guess(choice)
 
         self.assertEqual(20.0, self.player.win_loss_ratio)
+
+    def test_win_loss_ratio_after_0_wins_1_loss(self):
+        self.ms.player = self.player
+
+        # LOSS
+        for i in range(MastermindConstants.MAX_GUESSES):
+            self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+            choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
+            self.ms.guess(choice)
+
+        self.assertEqual(0.0, self.player.win_loss_ratio)
 
 
 if __name__ == '__main__':
