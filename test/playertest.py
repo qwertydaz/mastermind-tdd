@@ -124,6 +124,22 @@ class PlayerTest(unittest.TestCase):
 
         self.assertEqual(1.0, self.player.win_loss_ratio)
 
+    def test_win_loss_ratio_after_1_loss_then_1_win(self):
+        self.ms.player = self.player
+
+        # LOSS
+        for i in range(MastermindConstants.MAX_GUESSES):
+            self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+            choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
+            self.ms.guess(choice)
+
+        # WIN
+        self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+        choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+        self.ms.guess(choice)
+
+        self.assertEqual(1.0, self.player.win_loss_ratio)
+
 
 if __name__ == '__main__':
     unittest.main()
