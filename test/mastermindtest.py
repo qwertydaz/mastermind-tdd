@@ -61,6 +61,42 @@ class MastermindTest(unittest.TestCase):
         result = self.ms.guess(choice)
         self.assertEqual(WINNING_RESULT, result)
 
+    def test_duplicate_colours_in_code_and_wrong_guess(self):
+        self.ms.code = [Colour.RED, Colour.RED, Colour.GREEN, Colour.YELLOW]
+        choice = [Colour.RED, Colour.RED, Colour.YELLOW, Colour.GREEN]
+
+        result = self.ms.guess(choice)
+        self.assertEqual([2, 2], result)
+
+    def test_duplicate_colours_in_guess_in_wrong_position(self):
+        self.ms.code = [Colour.RED, Colour.BLUE, Colour.BLUE, Colour.YELLOW]
+        choice = [Colour.BLUE, Colour.RED, Colour.YELLOW, Colour.BLUE]
+
+        result = self.ms.guess(choice)
+        self.assertEqual([0, 4], result)
+
+    def test_duplicate_colours_in_guess_with_1_in_wrong_position(self):
+        self.ms.code = [Colour.RED, Colour.BLUE, Colour.RED, Colour.YELLOW]
+        choice = [Colour.RED, Colour.RED, Colour.BLACK, Colour.GREEN]
+
+        result = self.ms.guess(choice)
+        self.assertEqual([1, 1], result)
+
+    def test_win_with_1_colour_in_code(self):
+        self.ms.code = [Colour.RED, Colour.RED, Colour.RED, Colour.RED]
+        choice = [Colour.RED, Colour.RED, Colour.RED, Colour.RED]
+
+        result = self.ms.guess(choice)
+        self.assertEqual(WINNING_RESULT, result)
+
+    def test_1_colour_code_and_3_colour_guess(self):
+        self.ms.code = [Colour.RED, Colour.RED, Colour.RED, Colour.RED]
+        choice = [Colour.YELLOW, Colour.RED, Colour.BLUE, Colour.GREEN]
+
+        result = self.ms.guess(choice)
+        self.assertEqual([1, 0], result)
+
+
 class MastermindStub(Mastermind):
     def __init__(self, code=None):
         super().__init__()
