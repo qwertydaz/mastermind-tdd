@@ -14,6 +14,10 @@ class PlayerTest(unittest.TestCase):
         cls.player = Player()
         cls.ms = MastermindStub()
 
+    def tearDown(self):
+        self.player.wins = 0
+        self.player.losses = 0
+
     def test_default_name(self):
         self.assertEqual("Player", self.player.name)
 
@@ -54,6 +58,15 @@ class PlayerTest(unittest.TestCase):
             self.ms.guess(choice)
 
         self.assertEqual(1, self.player.losses)
+
+    def test_loss_count_after_win(self):
+        self.ms.player = self.player
+        self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+        choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
+
+        self.ms.guess(choice)
+
+        self.assertEqual(0, self.player.losses)
 
 
 if __name__ == '__main__':
