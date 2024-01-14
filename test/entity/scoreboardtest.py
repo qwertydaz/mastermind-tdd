@@ -10,7 +10,7 @@ class ScoreboardTest(unittest.TestCase):
     def setUp(self):
         self.ms = MastermindStub(Player())
 
-    def test_get_empty_scores(self):
+    def test_empty_scores(self):
         self.assertEqual([], self.ms.scoreboard.get_scores())
 
 
