@@ -13,6 +13,10 @@ class ScoreUtilTest(unittest.TestCase):
         final_score = calculate_score(MastermindConstants.MAX_NUM_OF_GUESSES)
         self.assertEqual(100, final_score)
 
+    def test_score_with_negative_guesses(self):
+        with self.assertRaises(ValueError):
+            calculate_score(-1)
+
 
 if __name__ == "__main__":
     unittest.main()
