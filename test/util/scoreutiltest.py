@@ -21,6 +21,10 @@ class ScoreUtilTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             calculate_score(MastermindConstants.MAX_NUM_OF_GUESSES + 1)
 
+    def test_calculate_score_with_string_guesses(self):
+        with self.assertRaises(TypeError):
+            calculate_score("helloworld")
+
 
 if __name__ == "__main__":
     unittest.main()
