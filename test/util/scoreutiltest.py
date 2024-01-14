@@ -1,6 +1,7 @@
 import unittest
 
 from constants.mastermindconstants import MastermindConstants
+from entity.player import Player
 from util.scoreutil import calculate_score
 
 
@@ -21,9 +22,11 @@ class ScoreUtilTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             calculate_score(MastermindConstants.MAX_NUM_OF_GUESSES + 1)
 
-    def test_calculate_score_with_string_guesses(self):
+    def test_calculating_score_with_invalid_datatype_guesses(self):
         with self.assertRaises(TypeError):
             calculate_score("helloworld")
+        with self.assertRaises(TypeError):
+            calculate_score(Player())
 
 
 if __name__ == "__main__":
