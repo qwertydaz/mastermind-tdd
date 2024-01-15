@@ -1,6 +1,7 @@
 import unittest
 
 from constants.mastermindconstants import MastermindConstants
+from src.entity.result.endresult import EndResult
 from src.entity.result.win import Win
 
 
@@ -28,6 +29,11 @@ class WinTest(unittest.TestCase):
             Win(None)
         with self.assertRaises(TypeError):
             Win(True)
+
+    def test_win_is_instance_of_end_result(self):
+        win = Win(1)
+
+        self.assertIsInstance(win, EndResult)
 
 
 if __name__ == "__main__":

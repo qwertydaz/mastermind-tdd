@@ -1,11 +1,6 @@
-from src.util.intutil import is_num_of_guesses_valid
+from src.entity.result.endresult import EndResult
 
 
-class Win:
+class Win(EndResult):
     def __init__(self, num_of_guesses):
-        if is_num_of_guesses_valid(num_of_guesses):
-            self._num_of_guesses = num_of_guesses
-
-    @property
-    def num_of_guesses(self):
-        return self._num_of_guesses
+        super().__init__(num_of_guesses)
