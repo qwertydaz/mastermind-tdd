@@ -1,4 +1,4 @@
-from util.scoreutil import calculate_score
+from src.util.scoreutil import calculate_score
 
 
 class Score:

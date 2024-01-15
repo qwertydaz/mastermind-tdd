@@ -1,10 +1,10 @@
 import unittest
 
 
-class LossTest(unittest.TestCase):
+class WinTest(unittest.TestCase):
     def test_something(self):
         self.fail()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

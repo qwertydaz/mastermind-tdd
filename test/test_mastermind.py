@@ -2,7 +2,7 @@ import unittest
 from random import Random
 
 from constants.mastermindconstants import MastermindConstants
-from entity.player import Player
+from src.entity.player import Player
 from enums.colour import Colour
 from stubs.mastermindstub import MastermindStub
 

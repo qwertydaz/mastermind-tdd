@@ -1,8 +1,8 @@
 from random import Random
 
 from constants.mastermindconstants import MastermindConstants
-from entity.result.results import Results
-from entity.score.scoreboard import Scoreboard
+from src.entity.result.results import Results
+from src.entity.score.scoreboard import Scoreboard
 from enums.colour import Colour
 
 

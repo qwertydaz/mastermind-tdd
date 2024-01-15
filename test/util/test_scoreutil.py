@@ -1,7 +1,7 @@
 import unittest
 
 from constants.mastermindconstants import MastermindConstants
-from util.scoreutil import calculate_score
+from src.util.scoreutil import calculate_score
 
 
 class ScoreUtilTest(unittest.TestCase):
