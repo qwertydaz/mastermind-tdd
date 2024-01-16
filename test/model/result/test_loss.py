@@ -1,7 +1,7 @@
 import unittest
 
-from constants.mastermindconstants import MastermindConstants
-from src.entity.result.loss import Loss
+from src.constants.mastermindconstants import MastermindConstants
+from src.model.result.loss import Loss
 
 
 class LossTest(unittest.TestCase):

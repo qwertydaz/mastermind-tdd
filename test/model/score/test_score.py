@@ -1,7 +1,7 @@
 import unittest
 
-from constants.mastermindconstants import MastermindConstants
-from src.entity.score.score import Score
+from src.constants.mastermindconstants import MastermindConstants
+from src.model.score.score import Score
 
 
 class ScoreTest(unittest.TestCase):

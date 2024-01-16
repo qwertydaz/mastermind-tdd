@@ -1,7 +1,7 @@
 import unittest
 
-from constants.mastermindconstants import MastermindConstants
-from src.entity.result.endresult import EndResult
+from src.constants.mastermindconstants import MastermindConstants
+from src.model.result.endresult import EndResult
 
 
 class EndResultTest(unittest.TestCase):

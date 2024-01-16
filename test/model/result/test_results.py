@@ -1,8 +1,8 @@
 import unittest
 
-from constants.mastermindconstants import MastermindConstants
-from src.entity.player import Player
-from enums.colour import Colour
+from src.constants.mastermindconstants import MastermindConstants
+from src.model.player import Player
+from src.enums.colour import Colour
 from stubs.stub_mastermind import MastermindStub
 
 

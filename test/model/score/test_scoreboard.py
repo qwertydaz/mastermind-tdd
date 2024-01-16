@@ -1,6 +1,6 @@
 import unittest
 
-from src.entity.player import Player
+from src.model.player import Player
 from stubs.stub_mastermind import MastermindStub
 
 

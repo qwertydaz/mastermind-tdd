@@ -1,5 +1,5 @@
-from constants.mastermindconstants import MastermindConstants
-from src.util.intutil import is_num_of_guesses_valid
+from src.constants.mastermindconstants import MastermindConstants
+from src.util.numberutil import is_num_of_guesses_valid
 
 
 def calculate_score(num_of_guesses):

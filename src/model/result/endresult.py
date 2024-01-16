@@ -1,4 +1,4 @@
-from src.util.intutil import is_num_of_guesses_valid
+from src.util.numberutil import is_num_of_guesses_valid
 
 
 class EndResult:

@@ -1,8 +1,8 @@
 import unittest
 
-from constants.mastermindconstants import MastermindConstants
-from src.entity.result.endresult import EndResult
-from src.entity.result.win import Win
+from src.constants.mastermindconstants import MastermindConstants
+from src.model.result.endresult import EndResult
+from src.model.result.win import Win
 
 
 class WinTest(unittest.TestCase):
@@ -27,6 +27,26 @@ class WinTest(unittest.TestCase):
             Win(None, 10.0)
         with self.assertRaises(TypeError):
             Win(True, 10.0)
+
+    def test_time_taken_in_seconds_for_valid_win(self):
+        win = Win(1, 10.0)
+        self.assertEqual(10.0, win.time_taken_in_seconds)
+
+    def test_win_with_invalid_range_of_time_taken_in_seconds(self):
+        with self.assertRaises(ValueError):
+            Win(1, -1.0)
+        with self.assertRaises(ValueError):
+            Win(1, 0.0)
+
+    def test_win_with_invalid_datatypes_for_time_taken_in_seconds(self):
+        with self.assertRaises(TypeError):
+            Win(1, "10.0")
+        with self.assertRaises(TypeError):
+            Win(1, 10)
+        with self.assertRaises(TypeError):
+            Win(1, None)
+        with self.assertRaises(TypeError):
+            Win(1, True)
 
     def test_win_is_instance_of_end_result(self):
         win = Win(1, 10.0)

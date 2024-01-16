@@ -1,9 +1,9 @@
 from random import Random
 
-from constants.mastermindconstants import MastermindConstants
-from src.entity.result.results import Results
-from src.entity.score.scoreboard import Scoreboard
-from enums.colour import Colour
+from src.constants.mastermindconstants import MastermindConstants
+from src.model.result.results import Results
+from src.model.score.scoreboard import Scoreboard
+from src.enums.colour import Colour
 
 
 class Mastermind:

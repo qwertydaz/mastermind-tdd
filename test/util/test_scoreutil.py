@@ -1,6 +1,6 @@
 import unittest
 
-from constants.mastermindconstants import MastermindConstants
+from src.constants.mastermindconstants import MastermindConstants
 from src.util.scoreutil import calculate_score
 
 
