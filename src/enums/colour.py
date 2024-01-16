@@ -1,10 +1,6 @@
 from enum import Enum
 
 
-def num_of_colours():
-    return len(Colour)
-
-
 class Colour(Enum):
     RED = 1
     GREEN = 2

@@ -1,7 +1,7 @@
 import unittest
 from random import Random
 
-from src.constants.mastermindconstants import MastermindConstants
+from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES
 from src.model.player import Player
 from src.enums.colour import Colour
 from stubs.stub_mastermind import MastermindStub
@@ -43,7 +43,7 @@ class PlayerTest(unittest.TestCase):
     def test_win_count_after_loss(self):
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
             self.ms.guess(choice)
 
@@ -52,7 +52,7 @@ class PlayerTest(unittest.TestCase):
     def test_loss_count_after_loss(self):
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
             self.ms.guess(choice)
 
@@ -86,7 +86,7 @@ class PlayerTest(unittest.TestCase):
     def test_win_loss_ratio_after_0_wins_1_loss(self):
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
             self.ms.guess(choice)
 
@@ -94,7 +94,7 @@ class PlayerTest(unittest.TestCase):
 
     def test_win_loss_ratio_after_0_wins_20_losses(self):
         # LOSS
-        for i in range((MastermindConstants.MAX_NUM_OF_GUESSES * 20)):
+        for i in range(MAX_NUM_OF_GUESSES * 20):
             # simulate a code reset after a game is lost
             if i % 20 == 0:
                 self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
@@ -112,7 +112,7 @@ class PlayerTest(unittest.TestCase):
 
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
             self.ms.guess(choice)
 
@@ -121,7 +121,7 @@ class PlayerTest(unittest.TestCase):
     def test_win_loss_ratio_after_1_loss_then_1_win(self):
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
             self.ms.guess(choice)
 
@@ -140,7 +140,7 @@ class PlayerTest(unittest.TestCase):
 
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
             self.ms.guess(choice)
 
@@ -154,7 +154,7 @@ class PlayerTest(unittest.TestCase):
     def test_win_loss_ratio_after_1_loss_then_1_win_then_1_loss(self):
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK], k=4)
             self.ms.guess(choice)
 
@@ -165,7 +165,7 @@ class PlayerTest(unittest.TestCase):
 
         # LOSS
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES):
+        for i in range(MAX_NUM_OF_GUESSES):
             choice = self.random.choices([Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLUE], k=4)
             self.ms.guess(choice)
 

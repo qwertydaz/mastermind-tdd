@@ -1,7 +1,8 @@
 import unittest
 
+from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES, MAX_TIME_FOR_SCORE_BONUS, TEN_SECONDS
+from src.model.result.loss import Loss
 from src.model.result.win import Win
-from src.constants.mastermindconstants import MastermindConstants
 from src.model.score.score import Score
 
 
@@ -19,12 +20,12 @@ class ScoreTest(unittest.TestCase):
         self.score.update_score(win)
         self.assertEqual(1500, self.score.current_score)
 
-        half_of_max_num_of_guesses = int(MastermindConstants.MAX_NUM_OF_GUESSES / 2)
+        half_of_max_num_of_guesses = int(MAX_NUM_OF_GUESSES / 2)
         win = Win(half_of_max_num_of_guesses, 10.0)
         self.score.update_score(win)
         self.assertEqual(1100, self.score.current_score)
 
-        win = Win(MastermindConstants.MAX_NUM_OF_GUESSES, 10.0)
+        win = Win(MAX_NUM_OF_GUESSES, 10.0)
         self.score.update_score(win)
         self.assertEqual(600, self.score.current_score)
 
@@ -33,22 +34,22 @@ class ScoreTest(unittest.TestCase):
         self.score.update_score(win)
         self.assertEqual(1100, self.score.current_score)
 
-        less_than_50_percent_of_bonus_time = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2 - 2.0
+        less_than_50_percent_of_bonus_time = MAX_TIME_FOR_SCORE_BONUS / 2 - 2.0
         win = Win(5, less_than_50_percent_of_bonus_time)
         self.score.update_score(win)
         self.assertEqual(850, self.score.current_score)
 
-        exactly_50_percent_of_bonus_time = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2
+        exactly_50_percent_of_bonus_time = MAX_TIME_FOR_SCORE_BONUS / 2
         win = Win(5, exactly_50_percent_of_bonus_time)
         self.score.update_score(win)
         self.assertEqual(850, self.score.current_score)
 
-        more_than_50_percent_of_bonus_time = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2 + 2.0
+        more_than_50_percent_of_bonus_time = MAX_TIME_FOR_SCORE_BONUS / 2 + 2.0
         win = Win(5, more_than_50_percent_of_bonus_time)
         self.score.update_score(win)
         self.assertEqual(725, self.score.current_score)
 
-        win = Win(5, MastermindConstants.MAX_TIME_FOR_SCORE_BONUS)
+        win = Win(5, MAX_TIME_FOR_SCORE_BONUS)
         self.score.update_score(win)
         self.assertEqual(600, self.score.current_score)
 
@@ -60,7 +61,7 @@ class ScoreTest(unittest.TestCase):
             win = Win(0, 10.0)
             self.score.update_score(win)
         with self.assertRaises(ValueError):
-            win = Win(MastermindConstants.MAX_NUM_OF_GUESSES + 1, 10.0)
+            win = Win(MAX_NUM_OF_GUESSES + 1, 10.0)
             self.score.update_score(win)
 
     def test_score_after_win_with_time_taken_outside_valid_range(self):
@@ -101,6 +102,10 @@ class ScoreTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             win = Win(1, True)
             self.score.update_score(win)
+
+    def test_score_after_loss(self):
+        self.score.update_score(Loss(TEN_SECONDS))
+        self.assertEqual(0, self.score.current_score)
 
 
 if __name__ == "__main__":

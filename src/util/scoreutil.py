@@ -1,28 +1,36 @@
-from src.model.result.win import Win
-from src.constants.mastermindconstants import MastermindConstants
+from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES, MAX_TIME_FOR_SCORE_BONUS, MAX_TIME_BONUS
 from src.util.numberutil import is_num_of_guesses_valid, is_time_taken_in_seconds_valid
+from src.model.result.endresult import EndResult
+from src.model.result.loss import Loss
+from src.model.result.win import Win
 
 
-def calculate_score(win: Win):
-    score_for_num_of_guesses = calculate_score_for_num_of_guesses(win.num_of_guesses)
-    score_for_time_taken_in_seconds = calculate_score_for_time_taken_in_seconds(win.time_taken_in_seconds)
+def calculate_score(end_result: EndResult):
+    if isinstance(end_result, Loss):
+        return 0
+    elif isinstance(end_result, Win):
+        score_for_num_of_guesses = calculate_score_for_num_of_guesses(end_result.num_of_guesses)
+        score_for_time_taken_in_seconds = calculate_score_for_time_taken_in_seconds(end_result.time_taken)
 
-    return score_for_num_of_guesses + score_for_time_taken_in_seconds
+        return score_for_num_of_guesses + score_for_time_taken_in_seconds
+    else:
+        raise TypeError("invalid type for end_result")
 
 
 def calculate_score_for_num_of_guesses(num_of_guesses):
     is_num_of_guesses_valid(num_of_guesses)
-    return (MastermindConstants.MAX_NUM_OF_GUESSES - num_of_guesses + 1) * 100
+
+    return (MAX_NUM_OF_GUESSES - num_of_guesses + 1) * 100
 
 
 def calculate_score_for_time_taken_in_seconds(time_taken_in_seconds):
     is_time_taken_in_seconds_valid(time_taken_in_seconds)
 
-    if time_taken_in_seconds <= MastermindConstants.MAX_TIME_FOR_SCORE_BONUS * 0.25:
-        return MastermindConstants.MAX_TIME_BONUS
-    elif time_taken_in_seconds <= MastermindConstants.MAX_TIME_FOR_SCORE_BONUS * 0.5:
-        return MastermindConstants.MAX_TIME_BONUS * 0.5
-    elif time_taken_in_seconds <= MastermindConstants.MAX_TIME_FOR_SCORE_BONUS * 0.75:
-        return MastermindConstants.MAX_TIME_BONUS * 0.25
+    if time_taken_in_seconds <= MAX_TIME_FOR_SCORE_BONUS * 0.25:
+        return MAX_TIME_BONUS
+    elif time_taken_in_seconds <= MAX_TIME_FOR_SCORE_BONUS * 0.5:
+        return MAX_TIME_BONUS * 0.5
+    elif time_taken_in_seconds <= MAX_TIME_FOR_SCORE_BONUS * 0.75:
+        return MAX_TIME_BONUS * 0.25
 
     return 0

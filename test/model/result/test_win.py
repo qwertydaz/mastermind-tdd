@@ -1,6 +1,6 @@
 import unittest
 
-from src.constants.mastermindconstants import MastermindConstants
+from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES
 from src.model.result.endresult import EndResult
 from src.model.result.win import Win
 
@@ -16,7 +16,7 @@ class WinTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             Win(0, 10.0)
         with self.assertRaises(ValueError):
-            Win(MastermindConstants.MAX_NUM_OF_GUESSES + 1, 10.0)
+            Win(MAX_NUM_OF_GUESSES + 1, 10.0)
 
     def test_win_with_invalid_datatypes_for_guesses(self):
         with self.assertRaises(TypeError):
@@ -30,7 +30,7 @@ class WinTest(unittest.TestCase):
 
     def test_time_taken_in_seconds_for_valid_win(self):
         win = Win(1, 10.0)
-        self.assertEqual(10.0, win.time_taken_in_seconds)
+        self.assertEqual(10.0, win.time_taken)
 
     def test_win_with_invalid_range_of_time_taken_in_seconds(self):
         with self.assertRaises(ValueError):

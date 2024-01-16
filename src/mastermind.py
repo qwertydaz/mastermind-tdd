@@ -1,6 +1,6 @@
 from random import Random
 
-from src.constants.mastermindconstants import MastermindConstants
+from src.constants.mastermindconstants import WINNING_RESULT, MAX_NUM_OF_GUESSES
 from src.model.result.results import Results
 from src.model.score.scoreboard import Scoreboard
 from src.enums.colour import Colour
@@ -18,10 +18,6 @@ class Mastermind:
         self.scoreboard = Scoreboard()
 
     @property
-    def player(self):
-        return self._player
-
-    @property
     def results(self):
         return self._results
 
@@ -30,9 +26,9 @@ class Mastermind:
         self.code = self._random.choices(colours, k=4)
 
     def _handle_win_loss_count(self, result):
-        if result == MastermindConstants.WINNING_RESULT:
+        if result == WINNING_RESULT:
             self._player.increment_wins()
-        elif self._num_of_guesses == MastermindConstants.MAX_NUM_OF_GUESSES:
+        elif self._num_of_guesses == MAX_NUM_OF_GUESSES:
             self._player.increment_losses()
             self._num_of_guesses = 0
 

@@ -1,6 +1,6 @@
 import unittest
 
-from src.constants.mastermindconstants import MastermindConstants
+from src.constants.mastermindconstants import WINNING_RESULT, MAX_NUM_OF_GUESSES
 from src.model.player import Player
 from src.enums.colour import Colour
 from stubs.stub_mastermind import MastermindStub
@@ -21,7 +21,7 @@ class ResultTest(unittest.TestCase):
         choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
         self.ms.guess(choice)
 
-        self.assertEqual([MastermindConstants.WINNING_RESULT], self.ms.results.all_results)
+        self.assertEqual([WINNING_RESULT], self.ms.results.all_results)
 
     def test_results_after_winning_on_last_guess(self):
         self.ms.code = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
@@ -40,7 +40,7 @@ class ResultTest(unittest.TestCase):
 
         correct_guess = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.BLACK]
 
-        for i in range(MastermindConstants.MAX_NUM_OF_GUESSES - 1):
+        for i in range(MAX_NUM_OF_GUESSES - 1):
             self.ms.guess(nine_wrong_guesses[i])
 
         self.ms.guess(correct_guess)
