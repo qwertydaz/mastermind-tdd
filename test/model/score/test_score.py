@@ -14,10 +14,33 @@ class ScoreTest(unittest.TestCase):
     def test_initial_score(self):
         self.assertEqual(0, self.score.current_score)
 
-    def test_score_after_first_win_in_1_guess_and_10_seconds(self):
+    def test_score_after_win_with_valid_guesses_and_10_seconds(self):
         win = Win(1, 10.0)
         self.score.update_score(win)
         self.assertEqual(1500, self.score.current_score)
+
+        half_of_max_num_of_guesses = int(MastermindConstants.MAX_NUM_OF_GUESSES / 2)
+        win = Win(half_of_max_num_of_guesses, 10.0)
+        self.score.update_score(win)
+        self.assertEqual(1100, self.score.current_score)
+
+        win = Win(MastermindConstants.MAX_NUM_OF_GUESSES, 10.0)
+        self.score.update_score(win)
+        self.assertEqual(600, self.score.current_score)
+
+    def test_score_after_win_with_5_guesses_and_valid_time_taken(self):
+        win = Win(5, 1.0)
+        self.score.update_score(win)
+        self.assertEqual(1100, self.score.current_score)
+
+        valid_time_taken = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2 - 2.0
+        win = Win(5, valid_time_taken)
+        self.score.update_score(win)
+        self.assertEqual(850, self.score.current_score)
+
+        win = Win(5, MastermindConstants.MAX_TIME_FOR_SCORE_BONUS)
+        self.score.update_score(win)
+        self.assertEqual(600, self.score.current_score)
 
     def test_score_after_win_with_guesses_outside_valid_range(self):
         with self.assertRaises(ValueError):
