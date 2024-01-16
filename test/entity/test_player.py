@@ -4,7 +4,7 @@ from random import Random
 from constants.mastermindconstants import MastermindConstants
 from src.entity.player import Player
 from enums.colour import Colour
-from stubs.mastermindstub import MastermindStub
+from stubs.stub_mastermind import MastermindStub
 
 
 # TODO: add mock to track how many times increment_losses() and increment_wins() are called

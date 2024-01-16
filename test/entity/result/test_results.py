@@ -3,7 +3,7 @@ import unittest
 from constants.mastermindconstants import MastermindConstants
 from src.entity.player import Player
 from enums.colour import Colour
-from stubs.mastermindstub import MastermindStub
+from stubs.stub_mastermind import MastermindStub
 
 
 class ResultTest(unittest.TestCase):

@@ -1,7 +1,7 @@
 import unittest
 
 from src.entity.player import Player
-from stubs.mastermindstub import MastermindStub
+from stubs.stub_mastermind import MastermindStub
 
 
 class ScoreboardTest(unittest.TestCase):
