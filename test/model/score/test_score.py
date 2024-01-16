@@ -63,6 +63,14 @@ class ScoreTest(unittest.TestCase):
             win = Win(MastermindConstants.MAX_NUM_OF_GUESSES + 1, 10.0)
             self.score.update_score(win)
 
+    def test_score_after_win_with_time_taken_outside_valid_range(self):
+        with self.assertRaises(ValueError):
+            win = Win(1, -1.0)
+            self.score.update_score(win)
+        with self.assertRaises(ValueError):
+            win = Win(1, 0.0)
+            self.score.update_score(win)
+
     def test_score_after_win_with_guesses_as_invalid_datatype(self):
         with self.assertRaises(TypeError):
             win = Win("1", 10.0)
@@ -78,6 +86,20 @@ class ScoreTest(unittest.TestCase):
             self.score.update_score(win)
         with self.assertRaises(TypeError):
             win = Win(None, 10.0)
+            self.score.update_score(win)
+
+    def test_score_after_win_with_time_taken_as_invalid_datatype(self):
+        with self.assertRaises(TypeError):
+            win = Win(1, "10.0")
+            self.score.update_score(win)
+        with self.assertRaises(TypeError):
+            win = Win(1, None)
+            self.score.update_score(win)
+        with self.assertRaises(TypeError):
+            win = Win(1, None)
+            self.score.update_score(win)
+        with self.assertRaises(TypeError):
+            win = Win(1, True)
             self.score.update_score(win)
 
 
