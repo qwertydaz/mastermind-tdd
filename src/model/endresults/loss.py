@@ -1,5 +1,5 @@
 from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES
-from src.model.result.endresult import EndResult
+from src.model.endresults.endresult import EndResult
 
 
 class Loss(EndResult):

@@ -1,8 +1,8 @@
 from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES, MAX_TIME_FOR_SCORE_BONUS, MAX_TIME_BONUS
 from src.util.numberutil import is_num_of_guesses_valid, is_time_taken_in_seconds_valid
-from src.model.result.endresult import EndResult
-from src.model.result.loss import Loss
-from src.model.result.win import Win
+from src.model.endresults.endresult import EndResult
+from src.model.endresults.loss import Loss
+from src.model.endresults.win import Win
 
 
 def calculate_score(end_result: EndResult):

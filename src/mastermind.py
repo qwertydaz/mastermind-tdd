@@ -1,8 +1,8 @@
 from random import Random
 
 from src.constants.mastermindconstants import WINNING_RESULT, MAX_NUM_OF_GUESSES
-from src.model.result.results import Results
-from src.model.score.scoreboard import Scoreboard
+from src.model.results import Results
+from src.model.scoreboard import Scoreboard
 from src.enums.colour import Colour
 
 

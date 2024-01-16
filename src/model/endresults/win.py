@@ -1,4 +1,4 @@
-from src.model.result.endresult import EndResult
+from src.model.endresults.endresult import EndResult
 
 
 class Win(EndResult):

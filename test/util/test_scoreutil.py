@@ -2,7 +2,7 @@ import unittest
 
 from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES, TEN_SECONDS, ONE_GUESS
 from src.util.scoreutil import calculate_score
-from src.model.result.win import Win
+from src.model.endresults.win import Win
 
 
 class ScoreUtilTest(unittest.TestCase):
