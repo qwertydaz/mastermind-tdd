@@ -33,10 +33,20 @@ class ScoreTest(unittest.TestCase):
         self.score.update_score(win)
         self.assertEqual(1100, self.score.current_score)
 
-        valid_time_taken = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2 - 2.0
-        win = Win(5, valid_time_taken)
+        less_than_50_percent_of_bonus_time = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2 - 2.0
+        win = Win(5, less_than_50_percent_of_bonus_time)
         self.score.update_score(win)
         self.assertEqual(850, self.score.current_score)
+
+        exactly_50_percent_of_bonus_time = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2
+        win = Win(5, exactly_50_percent_of_bonus_time)
+        self.score.update_score(win)
+        self.assertEqual(850, self.score.current_score)
+
+        more_than_50_percent_of_bonus_time = MastermindConstants.MAX_TIME_FOR_SCORE_BONUS / 2 + 2.0
+        win = Win(5, more_than_50_percent_of_bonus_time)
+        self.score.update_score(win)
+        self.assertEqual(725, self.score.current_score)
 
         win = Win(5, MastermindConstants.MAX_TIME_FOR_SCORE_BONUS)
         self.score.update_score(win)
