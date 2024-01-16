@@ -9,5 +9,5 @@ class Score:
     def current_score(self):
         return self._current_score
 
-    def update_score(self, num_of_guesses):
-        self._current_score = calculate_score(num_of_guesses)
+    def update_score(self, win):
+        self._current_score = calculate_score(win)
