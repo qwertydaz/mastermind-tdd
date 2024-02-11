@@ -1,5 +1,5 @@
 from src.constants.mastermindconstants import MAX_NUM_OF_GUESSES, MAX_TIME_FOR_SCORE_BONUS, MAX_TIME_BONUS
-from src.util.numberutil import is_num_of_guesses_valid, is_time_taken_in_seconds_valid
+from src.util.numberutil import is_num_of_guesses_valid, is_time_taken_valid
 from src.model.endresults.endresult import EndResult
 from src.model.endresults.loss import Loss
 from src.model.endresults.win import Win
@@ -24,7 +24,7 @@ def calculate_score_for_num_of_guesses(num_of_guesses):
 
 
 def calculate_score_for_time_taken_in_seconds(time_taken_in_seconds):
-    is_time_taken_in_seconds_valid(time_taken_in_seconds)
+    is_time_taken_valid(time_taken_in_seconds)
 
     if time_taken_in_seconds <= MAX_TIME_FOR_SCORE_BONUS * 0.25:
         return MAX_TIME_BONUS
@@ -34,3 +34,5 @@ def calculate_score_for_time_taken_in_seconds(time_taken_in_seconds):
         return MAX_TIME_BONUS * 0.25
 
     return 0
+
+

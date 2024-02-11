@@ -26,8 +26,8 @@ class PlayerTest(unittest.TestCase):
         self.assertEqual("Player", self.ms.player.name)
 
     def test_initialise_name(self):
-        self.ms.player = Player("Test")
-        self.assertEqual("Test", self.ms.player.name)
+        self.ms.player = Player("player_test_name")
+        self.assertEqual("player_test_name", self.ms.player.name)
 
     def test_initial_win_count(self):
         self.assertEqual(0, self.ms.player.wins)

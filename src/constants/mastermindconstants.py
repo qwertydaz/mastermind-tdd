@@ -5,3 +5,5 @@ MAX_TIME_BONUS = 500  # in points
 TEN_SECONDS = 10.0
 ONE_GUESS = 1
 FIVE_GUESSES = 5
+LOSING_RESULTS = [[3, 0], [2, 1], [2, 1], [1, 2], [3, 0], [0, 3], [2, 0], [2, 1], [1, 3], [3, 1]]
+CODE_LENGTH = 4

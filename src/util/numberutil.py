@@ -10,10 +10,10 @@ def is_num_of_guesses_valid(num_of_guesses):
     return True
 
 
-def is_time_taken_in_seconds_valid(time_taken_in_seconds):
-    if not isinstance(time_taken_in_seconds, float) or type(time_taken_in_seconds) is bool:
-        raise TypeError("time taken in seconds must be a float")
-    if time_taken_in_seconds <= 0.0:
-        raise ValueError("time taken in seconds must be greater than 0.0")
+def is_time_taken_valid(time_taken):
+    if not isinstance(time_taken, float) or type(time_taken) is bool:
+        raise TypeError("time taken must be a float")
+    if time_taken <= 0.0:
+        raise ValueError("time taken must be greater than 0.0")
 
     return True

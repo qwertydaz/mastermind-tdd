@@ -10,7 +10,7 @@ class ScoreboardTest(unittest.TestCase):
     ms = None
 
     def setUp(self):
-        self.player = Player("scoreboardTest")
+        self.player = Player("scoreboard_test")
         self.ms = MastermindStub(self.player)
 
     def test_empty_scores(self):
@@ -22,7 +22,7 @@ class ScoreboardTest(unittest.TestCase):
         choice = [Colour.RED, Colour.BLUE, Colour.GREEN, Colour.YELLOW]
         self.ms.guess(choice)
 
-        self.assertEqual
+        pass  # TODO
 
 
 if __name__ == "__main__":
